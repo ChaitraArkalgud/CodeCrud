@@ -1,0 +1,53 @@
+<table>
+    <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>Gender</th>
+        <th>status</th>
+        <th>Delete User</th>
+        <th>Update User</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let dataVal of data">
+            <td>{{dataVal.id}}</td>
+            <td>{{dataVal.name}}</td>
+            <td>{{dataVal.email}}</td>
+            <td>{{dataVal.gender}}</td>
+            <td>{{dataVal.status}}</td>
+         <td><button class="btn btn-danger" (click)="deleteUser(dataVal)">Delete User</button></td>
+         <td><button class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal"  (click)="edit(dataVal)">Update User</button></td>
+ </tr>
+    </tbody>
+</table>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+        </div>
+        <div class="modal-body">
+           <form [formGroup]="contactForm" (ngSubmit)="updateUser(contactForm)">
+            <label for="name">Name</label>
+            <input type="text" [(ngModel)]="userToUpdate.name" formControlName="name"><br>
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="userToUpdate.email" formControlName="email"><br>
+            <label for="gender">Gender</label>
+            <input type="radio" id="gender" name="gender" [(ngModel)]="userToUpdate.gender" formControlName="gender" value="male" required>Male
+            <input type="radio" id="gender" name="gender" [(ngModel)]="userToUpdate.gender" formControlName="gender" value="female">Female<br>
+
+            <label for="status">Status</label>
+            <input type="radio"  id="status" name="status" [(ngModel)]="userToUpdate.status" value="active" formControlName="status" >Active
+            <input type="radio" id="status" name="status" [(ngModel)]="userToUpdate.status" value="inactive" formControlName="status">Inactive<br>
+             <button type="submit">update</button>
+           </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>

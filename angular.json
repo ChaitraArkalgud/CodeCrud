@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "pragmana"
+    }
+  },
+  "defaultProject": "pragmana",
+  "cli": {
+    "analytics": "6cd7f5d7-9c40-471d-b71e-5428b6099e78"
+  }
 }

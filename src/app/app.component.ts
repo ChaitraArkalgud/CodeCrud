@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pragmana';
+  btnClick= function () {
+    this.router.navigateByUrl('/user');
+};
 }
